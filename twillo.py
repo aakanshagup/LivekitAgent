@@ -1,12 +1,19 @@
 # Download the helper library from https://www.twilio.com/docs/python/install
 import os
 from twilio.rest import Client
+from dotenv import load_dotenv 
+
+load_dotenv() 
 
 # Your Twilio Account SID and Auth Token.
-# account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
-# auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
-account_sid = "ACf9a92c5ab21b1b564751b76b8189218a"
-auth_token = "68ad1d0c3ba4f6031c5d1170cb5a1a63"
+account_sid = os.environ.get("TWILIO_ACCOUNT_SID") 
+auth_token = os.environ.get("TWILIO_AUTH_TOKEN")  
+# account_sid = "ACf9a92c5ab21b1b564751b76b8189218a" 
+# auth_token = "68ad1d0c3ba4f6031c5d1170cb5a1a63" 
+
+print(f"DEBUG: Account SID loaded: '{account_sid}'") 
+print(f"DEBUG: Auth Token loaded: '{auth_token}'")   
+
 
 # Initialize the Twilio client with your credentials
 client = Client(account_sid, auth_token)
